@@ -2,8 +2,8 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class App {
@@ -24,18 +24,13 @@ public class App {
 
         logger = LogManager.getLogger();
 
-        logger.info("---------------------------");
-        logger.info("Lista dostępnych opcji:");
-        logger.info("CAR, PLANE, SHIP, BICYCLE");
-        logger.info("ALL");
-        logger.info("EXIT");
-        logger.info("---------------------------");
-
-        logger.info("Wybierz opcję: ");
+        showMenu();
 
         do{
             Scanner scanner = new Scanner(System.in);
             chosenOption = scanner.nextLine();
+
+            exitIfExitOptionChosen();
 
             vehicle = getFastestVehicle(chosenOption);
 
@@ -49,20 +44,33 @@ public class App {
                         " (maksymalna prędkość to = "+vehicle.getMaxSpeed()+")");
 
                 logger.info("Wybierz kolejną opcję: ");
-
             }
 
         }while (1==1);
+    }
 
-
-
+    public static void main(String[] args) {
+        App app = new App();
     }
 
 
-    public static void main(String[] args) {
 
-        App app = new App();
+    private void showMenu() {
+        logger.info("---------------------------");
+        logger.info("Lista dostępnych opcji:");
+        logger.info("CAR, PLANE, SHIP, BICYCLE");
+        logger.info("ALL");
+        logger.info("EXIT");
+        logger.info("---------------------------");
 
+        logger.info("Wybierz opcję: ");
+    }
+
+    private void exitIfExitOptionChosen() {
+        if(Objects.equals(chosenOption, "exit")){
+            logger.info("WYŁĄCZANIE PROGRAMU");
+            System.exit(0);
+        }
     }
 
     private Vehicle getFastestVehicleFromGroup(List<Vehicle> vehicles){
@@ -83,18 +91,10 @@ public class App {
     private Vehicle getFastestVehicleFromAll(){
         Vehicle fastestVehicle = cars.get(0);
 
-        for(Vehicle vehicle : cars){
-            fastestVehicle = getFasterVehicle(vehicle,fastestVehicle);
-        }
-        for (Vehicle vehicle : ships){
-            fastestVehicle = getFasterVehicle(vehicle,fastestVehicle);
-        }
-        for (Vehicle vehicle : planes){
-            fastestVehicle = getFasterVehicle(vehicle,fastestVehicle);
-        }
-        for (Vehicle vehicle : bicycles){
-            fastestVehicle = getFasterVehicle(vehicle,fastestVehicle);
-        }
+       fastestVehicle = getFasterVehicle(fastestVehicle,getFastestVehicleFromGroup(cars));
+       fastestVehicle = getFasterVehicle(fastestVehicle, getFastestVehicleFromGroup(ships));
+       fastestVehicle = getFasterVehicle(fastestVehicle, getFastestVehicleFromGroup(planes));
+       fastestVehicle = getFasterVehicle(fastestVehicle, getFastestVehicleFromGroup(bicycles));
 
         return fastestVehicle;
     }
@@ -117,9 +117,6 @@ public class App {
             case "all":
                 return getFastestVehicleFromAll();
 
-            case "exit":
-                logger.info("WYŁĄCZANIE PROGRAMU");
-                System.exit(0);
              default:
                  return null;
         }

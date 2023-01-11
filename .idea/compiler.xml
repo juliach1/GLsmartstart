@@ -2,7 +2,9 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
+      <profile default="true" name="Default" enabled="true">
+        <processor name="&lt;annotationProcessorPaths&gt; &#9;&lt;path&gt; &#9;&#9;&lt;groupId&gt;org.projectlombok&lt;/groupId&gt; &#9;&#9;&lt;artifactId&gt;lombok&lt;/artifactId&gt; &#9;&#9;&lt;version&gt;1.18.24&lt;/version&gt; &#9;&lt;/path&gt; &lt;/annotationProcessorPaths&gt;" />
+      </profile>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />

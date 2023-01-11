@@ -1,7 +1,13 @@
-2023-01-05 16:45:01.378 [main] INFO  App - ---------------------------
-2023-01-05 16:45:01.381 [main] INFO  App - Lista dostępnych opcji:
-2023-01-05 16:45:01.381 [main] INFO  App - CAR, PLANE, SHIP, BICYCLE
-2023-01-05 16:45:01.381 [main] INFO  App - ALL
-2023-01-05 16:45:01.381 [main] INFO  App - EXIT
-2023-01-05 16:45:01.382 [main] INFO  App - ---------------------------
-2023-01-05 16:45:01.382 [main] INFO  App - Wybierz opcję: 
+2023-01-11 03:17:05.973 [main] INFO  App - ---------------------------
+2023-01-11 03:17:05.975 [main] INFO  App - Lista dostępnych opcji:
+2023-01-11 03:17:05.975 [main] INFO  App - CAR, PLANE, SHIP, BICYCLE
+2023-01-11 03:17:05.975 [main] INFO  App - ALL
+2023-01-11 03:17:05.975 [main] INFO  App - EXIT
+2023-01-11 03:17:05.976 [main] INFO  App - ---------------------------
+2023-01-11 03:17:05.976 [main] INFO  App - Wybierz opcję: 
+2023-01-11 03:17:14.362 [main] INFO  App - Wybierz prawidłową opcję: 
+2023-01-11 03:17:19.420 [main] INFO  App - Pojazd Car producenta Toyota jest najszybszy (maksymalna prędkość to = 230)
+2023-01-11 03:17:19.421 [main] INFO  App - Wybierz kolejną opcję: 
+2023-01-11 03:17:26.338 [main] INFO  App - Pojazd Plane producenta Boeing jest najszybszy (maksymalna prędkość to = 950)
+2023-01-11 03:17:26.339 [main] INFO  App - Wybierz kolejną opcję: 
+2023-01-11 03:17:29.496 [main] INFO  App - WYŁĄCZANIE PROGRAMU
